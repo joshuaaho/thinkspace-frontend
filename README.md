@@ -1,0 +1,1 @@
+Frontend for my project thinkspace using Typescript, React, React Query, Zustand & more

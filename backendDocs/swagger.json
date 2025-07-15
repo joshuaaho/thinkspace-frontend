@@ -1,0 +1,2472 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"ThemePreference": {
+				"type": "string",
+				"enum": [
+					"light",
+					"dark",
+					"system"
+				]
+			},
+			"GetUserByIdResponse": {
+				"properties": {
+					"followedBy": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"themePreference": {
+						"$ref": "#/components/schemas/ThemePreference"
+					},
+					"profileImgUrl": {
+						"type": "string"
+					},
+					"location": {
+						"type": "string"
+					},
+					"interest": {
+						"type": "string"
+					},
+					"education": {
+						"type": "string"
+					},
+					"bio": {
+						"type": "string"
+					},
+					"work": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"username": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"followedBy",
+					"themePreference",
+					"profileImgUrl",
+					"email",
+					"username",
+					"id"
+				],
+				"type": "object"
+			},
+			"HTTPError": {
+				"properties": {
+					"error": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"error"
+				],
+				"type": "object"
+			},
+			"GetMeResponse": {
+				"properties": {
+					"followedBy": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"themePreference": {
+						"$ref": "#/components/schemas/ThemePreference"
+					},
+					"profileImgUrl": {
+						"type": "string"
+					},
+					"location": {
+						"type": "string"
+					},
+					"interest": {
+						"type": "string"
+					},
+					"education": {
+						"type": "string"
+					},
+					"bio": {
+						"type": "string"
+					},
+					"work": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"username": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"followedBy",
+					"themePreference",
+					"profileImgUrl",
+					"email",
+					"username",
+					"id"
+				],
+				"type": "object"
+			},
+			"Partial__work-string--bio-string--education-string--interest-string--location-string--profileImgUrl_description-S3urloftheprofileimage.Generateapresignedurlusing_47_files_47_upload-urlandusetheurltosavetheimagetos3_40_Automaticallyhandledbythefrontend_41_.Aftersaving.theurlcanbeusedinthisrequesttoindicateyournewprofileimage_-string--themePreference-ThemePreference__": {
+				"properties": {
+					"work": {
+						"type": "string"
+					},
+					"bio": {
+						"type": "string"
+					},
+					"education": {
+						"type": "string"
+					},
+					"interest": {
+						"type": "string"
+					},
+					"location": {
+						"type": "string"
+					},
+					"profileImgUrl": {
+						"type": "string",
+						"description": "S3 url of the profile image. Generate a presigned url using /files/upload-url and use the url to save the image to s3 (Automatically handled by the frontend). After saving, the url can be used in this request to indicate your new profile image"
+					},
+					"themePreference": {
+						"$ref": "#/components/schemas/ThemePreference"
+					}
+				},
+				"type": "object",
+				"description": "Make all properties in T optional"
+			},
+			"EditUserCommand": {
+				"$ref": "#/components/schemas/Partial__work-string--bio-string--education-string--interest-string--location-string--profileImgUrl_description-S3urloftheprofileimage.Generateapresignedurlusing_47_files_47_upload-urlandusetheurltosavetheimagetos3_40_Automaticallyhandledbythefrontend_41_.Aftersaving.theurlcanbeusedinthisrequesttoindicateyournewprofileimage_-string--themePreference-ThemePreference__"
+			},
+			"QueryUsersResponse": {
+				"items": {
+					"properties": {
+						"followedBy": {
+							"items": {
+								"type": "string"
+							},
+							"type": "array"
+						},
+						"themePreference": {
+							"$ref": "#/components/schemas/ThemePreference"
+						},
+						"profileImgUrl": {
+							"type": "string"
+						},
+						"location": {
+							"type": "string"
+						},
+						"interest": {
+							"type": "string"
+						},
+						"education": {
+							"type": "string"
+						},
+						"bio": {
+							"type": "string"
+						},
+						"work": {
+							"type": "string"
+						},
+						"email": {
+							"type": "string"
+						},
+						"username": {
+							"type": "string"
+						},
+						"id": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"followedBy",
+						"themePreference",
+						"profileImgUrl",
+						"email",
+						"username",
+						"id"
+					],
+					"type": "object"
+				},
+				"type": "array",
+				"description": "Information about the users"
+			},
+			"QueryUsersCommand": {
+				"properties": {
+					"offset": {
+						"type": "number",
+						"format": "double"
+					},
+					"limit": {
+						"type": "number",
+						"format": "double"
+					},
+					"username": {
+						"type": "string",
+						"description": "The username of the user to query"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"QueryNotificationsResponse": {
+				"items": {
+					"properties": {
+						"createdAt": {
+							"type": "string"
+						},
+						"redirectToResourceType": {
+							"type": "string",
+							"description": "Metadata on what type of resource should be redirected to after clicking the notification"
+						},
+						"resourceId": {
+							"type": "string",
+							"description": "The id of a specific \"ResrouceType\""
+						},
+						"isRead": {
+							"type": "boolean"
+						},
+						"message": {
+							"type": "string"
+						},
+						"fromProfileImgUrl": {
+							"type": "string",
+							"description": "The profile image url of the user who sent the notification"
+						},
+						"id": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"createdAt",
+						"redirectToResourceType",
+						"resourceId",
+						"isRead",
+						"message",
+						"fromProfileImgUrl",
+						"id"
+					],
+					"type": "object"
+				},
+				"type": "array"
+			},
+			"QueryNotificationsCommand": {
+				"properties": {
+					"offset": {
+						"type": "number",
+						"format": "double"
+					},
+					"limit": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetUnreadCountResponse": {
+				"properties": {
+					"unreadCount": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"unreadCount"
+				],
+				"type": "object"
+			},
+			"MarkAsReadCommand": {
+				"description": "Filter to mark notifications as read",
+				"properties": {
+					"redirectToResourceType": {
+						"type": "string"
+					},
+					"resourceId": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreatePostResponse": {
+				"properties": {
+					"postId": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"postId"
+				],
+				"type": "object"
+			},
+			"CreatePostCommand": {
+				"properties": {
+					"tags": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"content": {
+						"type": "string"
+					},
+					"imgUrls": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"title": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"content",
+					"title"
+				],
+				"type": "object"
+			},
+			"EditPostUpdates": {
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"content": {
+						"type": "string"
+					},
+					"tags": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"imgUrls": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetPostByIdResponse": {
+				"properties": {
+					"commentedBy": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"likedBy": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"imgUrls": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"tags": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"authorProfileImgUrl": {
+						"type": "string"
+					},
+					"username": {
+						"type": "string"
+					},
+					"authorId": {
+						"type": "string"
+					},
+					"content": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"commentedBy",
+					"likedBy",
+					"createdAt",
+					"imgUrls",
+					"tags",
+					"authorProfileImgUrl",
+					"username",
+					"authorId",
+					"content",
+					"title",
+					"id"
+				],
+				"type": "object"
+			},
+			"QueryPostsResponse": {
+				"items": {
+					"properties": {
+						"commentedBy": {
+							"items": {
+								"type": "string"
+							},
+							"type": "array"
+						},
+						"imgUrls": {
+							"items": {
+								"type": "string"
+							},
+							"type": "array"
+						},
+						"likedBy": {
+							"items": {
+								"type": "string"
+							},
+							"type": "array"
+						},
+						"tags": {
+							"items": {
+								"type": "string"
+							},
+							"type": "array"
+						},
+						"createdAt": {
+							"type": "string"
+						},
+						"content": {
+							"type": "string"
+						},
+						"title": {
+							"type": "string"
+						},
+						"id": {
+							"type": "string"
+						},
+						"authorProfileImgUrl": {
+							"type": "string"
+						},
+						"username": {
+							"type": "string"
+						},
+						"authorId": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"commentedBy",
+						"imgUrls",
+						"likedBy",
+						"tags",
+						"createdAt",
+						"content",
+						"title",
+						"id",
+						"authorProfileImgUrl",
+						"username",
+						"authorId"
+					],
+					"type": "object"
+				},
+				"type": "array"
+			},
+			"SortBy": {
+				"type": "string",
+				"enum": [
+					"newest",
+					"oldest",
+					"mostLiked"
+				]
+			},
+			"QueryPostsCommand": {
+				"properties": {
+					"offset": {
+						"type": "number",
+						"format": "double"
+					},
+					"limit": {
+						"type": "number",
+						"format": "double"
+					},
+					"tags": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"sortBy": {
+						"$ref": "#/components/schemas/SortBy"
+					},
+					"title": {
+						"type": "string"
+					},
+					"authorId": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateCommentCommand": {
+				"properties": {
+					"postId": {
+						"type": "string"
+					},
+					"parentCommentId": {
+						"type": "string"
+					},
+					"content": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"postId",
+					"content"
+				],
+				"type": "object"
+			},
+			"EditCommentBody": {
+				"properties": {
+					"content": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"content"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"QueryCommentsResponse": {
+				"items": {
+					"properties": {
+						"parentCommentId": {
+							"type": "string"
+						},
+						"likedBy": {
+							"items": {
+								"type": "string"
+							},
+							"type": "array"
+						},
+						"createdAt": {
+							"type": "string"
+						},
+						"authorProfileImgUrl": {
+							"type": "string"
+						},
+						"authorUsername": {
+							"type": "string"
+						},
+						"authorId": {
+							"type": "string"
+						},
+						"postId": {
+							"type": "string"
+						},
+						"content": {
+							"type": "string"
+						},
+						"id": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"likedBy",
+						"createdAt",
+						"authorProfileImgUrl",
+						"authorUsername",
+						"authorId",
+						"postId",
+						"content",
+						"id"
+					],
+					"type": "object"
+				},
+				"type": "array"
+			},
+			"QueryCommentsCommand": {
+				"properties": {
+					"postId": {
+						"type": "string"
+					},
+					"offset": {
+						"type": "number",
+						"format": "double"
+					},
+					"limit": {
+						"type": "number",
+						"format": "double"
+					},
+					"authorId": {
+						"type": "string"
+					},
+					"sortBy": {
+						"$ref": "#/components/schemas/SortBy"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"QueryMessagesResponse": {
+				"items": {
+					"properties": {
+						"isFromCurrentUser": {
+							"type": "boolean"
+						},
+						"otherParticipantId": {
+							"type": "string"
+						},
+						"createdAt": {
+							"type": "string"
+						},
+						"content": {
+							"type": "string"
+						},
+						"username": {
+							"type": "string"
+						},
+						"profileImgUrl": {
+							"type": "string"
+						},
+						"id": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"isFromCurrentUser",
+						"otherParticipantId",
+						"createdAt",
+						"content",
+						"username",
+						"profileImgUrl",
+						"id"
+					],
+					"type": "object"
+				},
+				"type": "array"
+			},
+			"QueryMessagesCommand": {
+				"properties": {
+					"otherParticipantId": {
+						"type": "string"
+					},
+					"offset": {
+						"type": "number",
+						"format": "double"
+					},
+					"limit": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"otherParticipantId"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetChatListResponse": {
+				"items": {
+					"properties": {
+						"otherParticipantId": {
+							"type": "string"
+						},
+						"createdAt": {
+							"type": "string"
+						},
+						"content": {
+							"type": "string",
+							"description": "Content of the message"
+						},
+						"profileImgUrl": {
+							"type": "string",
+							"description": "Profile image url of the other participant in the chat"
+						},
+						"otherParticipantUsername": {
+							"type": "string",
+							"description": "Username of the other participant in the chat"
+						},
+						"id": {
+							"type": "string",
+							"description": "Id of the message"
+						}
+					},
+					"required": [
+						"otherParticipantId",
+						"createdAt",
+						"content",
+						"profileImgUrl",
+						"otherParticipantUsername",
+						"id"
+					],
+					"type": "object"
+				},
+				"type": "array",
+				"description": "The latest message from each of the users chat"
+			},
+			"CreateMessageCommand": {
+				"properties": {
+					"recipientId": {
+						"type": "string"
+					},
+					"text": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"recipientId",
+					"text"
+				],
+				"type": "object"
+			},
+			"CreateFileUploadUrlResponse": {
+				"properties": {
+					"uploadUrl": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"uploadUrl"
+				],
+				"type": "object"
+			},
+			"LoginCommand": {
+				"properties": {
+					"username": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"username",
+					"password"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"RegisterCommand": {
+				"properties": {
+					"username": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"username",
+					"password",
+					"email"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {
+			"bearerAuth": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
+			}
+		}
+	},
+	"info": {
+		"title": "ca",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"paths": {
+		"/users/{userId}": {
+			"get": {
+				"operationId": "HandleGetById",
+				"responses": {
+					"200": {
+						"description": "User Retrieved Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetUserByIdResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "User not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Users"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "userId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/me": {
+			"get": {
+				"operationId": "HandleGetMe",
+				"responses": {
+					"200": {
+						"description": "User Retrieved Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetMeResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Users"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/users/me": {
+			"patch": {
+				"operationId": "HandleEdit",
+				"responses": {
+					"200": {
+						"description": "User Edited Successfully"
+					},
+					"400": {
+						"description": "Validation error or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Users"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/EditUserCommand"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/users/{userId}/follow": {
+			"post": {
+				"operationId": "Follow",
+				"responses": {
+					"201": {
+						"description": "Successfully followed user"
+					},
+					"400": {
+						"description": "Invalid Request or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "User Not Found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Users"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "userId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/users": {
+			"get": {
+				"operationId": "QueryUsers",
+				"responses": {
+					"200": {
+						"description": "Users Retrieved Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/QueryUsersResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Users"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "offset",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "The username of the user to query",
+						"in": "query",
+						"name": "username",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/notifications/me": {
+			"get": {
+				"operationId": "HandleQuery",
+				"responses": {
+					"200": {
+						"description": "Notifications Retrieved Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/QueryNotificationsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Notifications"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "offset",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/notifications/unread-count": {
+			"get": {
+				"operationId": "HandleGetUnreadCount",
+				"responses": {
+					"200": {
+						"description": "Unread Count Retrieved Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetUnreadCountResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Notifications"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/notifications/read": {
+			"post": {
+				"operationId": "HandleMarkAsRead",
+				"responses": {
+					"200": {
+						"description": "Notifications Marked as Read Successfully"
+					},
+					"400": {
+						"description": "Invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Notifications"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/MarkAsReadCommand"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/posts": {
+			"post": {
+				"operationId": "CreatePost",
+				"responses": {
+					"201": {
+						"description": "Created",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreatePostResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Validation error or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Posts"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreatePostCommand"
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"operationId": "QueryPosts",
+				"responses": {
+					"200": {
+						"description": "Posts Retrieved Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/QueryPostsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Posts"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "offset",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "tags",
+						"required": false,
+						"schema": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					},
+					{
+						"in": "query",
+						"name": "sortBy",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/SortBy"
+						}
+					},
+					{
+						"in": "query",
+						"name": "title",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "authorId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/posts/{postId}": {
+			"delete": {
+				"operationId": "DeletePost",
+				"responses": {
+					"204": {
+						"description": "Post Deleted Successfully"
+					},
+					"400": {
+						"description": "Invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"403": {
+						"description": "Unauthorized",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Post not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Posts"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "postId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"patch": {
+				"operationId": "EditPost",
+				"responses": {
+					"200": {
+						"description": "Post Edited Successfully"
+					},
+					"400": {
+						"description": "Validation error or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"403": {
+						"description": "Unauthorized",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Post not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Posts"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "postId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/EditPostUpdates"
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"operationId": "GetPostById",
+				"responses": {
+					"200": {
+						"description": "Post Retrieved Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetPostByIdResponse"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Post not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Posts"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "postId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/posts/{postId}/like": {
+			"post": {
+				"operationId": "LikePost",
+				"responses": {
+					"201": {
+						"description": "Post Liked Successfully"
+					},
+					"400": {
+						"description": "Already liked or Self like or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Post not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Posts"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "postId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/posts/{postId}/unlike": {
+			"post": {
+				"operationId": "UnlikePost",
+				"responses": {
+					"200": {
+						"description": "Post Unliked Successfully"
+					},
+					"400": {
+						"description": "Invalid request or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Post not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Posts"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "postId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/comments": {
+			"post": {
+				"operationId": "Create",
+				"responses": {
+					"201": {
+						"description": "Comment Created Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Validation error or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Corresponding post or parent comment not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Comments"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreateCommentCommand"
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"operationId": "Query",
+				"responses": {
+					"200": {
+						"description": "Comments Retrieved Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/QueryCommentsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Comments"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "postId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "offset",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "authorId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "sortBy",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/SortBy"
+						}
+					}
+				]
+			}
+		},
+		"/comments/{commentId}": {
+			"delete": {
+				"operationId": "Delete",
+				"responses": {
+					"204": {
+						"description": "Comment Deleted Successfully"
+					},
+					"400": {
+						"description": "Invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"403": {
+						"description": "Unauthorized",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Comment not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Comments"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "commentId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"patch": {
+				"operationId": "Edit",
+				"responses": {
+					"200": {
+						"description": "Comment Edited Successfully"
+					},
+					"400": {
+						"description": "Validation error or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"403": {
+						"description": "Unauthorized",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Comment not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Comments"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "commentId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/EditCommentBody"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/comments/{commentId}/like": {
+			"post": {
+				"operationId": "Like",
+				"responses": {
+					"201": {
+						"description": "Comment Liked Successfully"
+					},
+					"400": {
+						"description": "Invalid request or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Comment not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Comments"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "commentId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/comments/{commentId}/unlike": {
+			"post": {
+				"operationId": "Unlike",
+				"responses": {
+					"200": {
+						"description": "Comment Unliked Successfully"
+					},
+					"400": {
+						"description": "Invalid request or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Comment not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Comments"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "commentId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/messages": {
+			"get": {
+				"operationId": "QueryMessages",
+				"responses": {
+					"200": {
+						"description": "Messages Retrieved Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/QueryMessagesResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Messages"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "otherParticipantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "offset",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreateMessage",
+				"responses": {
+					"200": {
+						"description": "Message Created Successfully"
+					},
+					"400": {
+						"description": "Validation error or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Recipient not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Messages"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreateMessageCommand"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/chats": {
+			"get": {
+				"operationId": "GetChatList",
+				"responses": {
+					"200": {
+						"description": "Chat List Retrieved Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetChatListResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Messages"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/files/upload-url": {
+			"post": {
+				"operationId": "HandleCreateFileUploadUrl",
+				"responses": {
+					"200": {
+						"description": "Upload URL Created Successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateFileUploadUrlResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthenticated",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Files"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/auth/login": {
+			"post": {
+				"operationId": "Login",
+				"responses": {
+					"201": {
+						"description": "Created",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"accessToken": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"accessToken"
+									],
+									"type": "object"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Login Unsuccessful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Authentication"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/LoginCommand"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/register": {
+			"post": {
+				"operationId": "Register",
+				"responses": {
+					"201": {
+						"description": "Created"
+					},
+					"400": {
+						"description": "Validation error or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"409": {
+						"description": "Conflict error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Authentication"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RegisterCommand"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/logout": {
+			"post": {
+				"operationId": "Logout",
+				"responses": {
+					"200": {
+						"description": "Logged out successfully"
+					}
+				},
+				"tags": [
+					"Authentication"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/auth/refresh": {
+			"post": {
+				"operationId": "Refresh",
+				"responses": {
+					"201": {
+						"description": "Created",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"accessToken": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"accessToken"
+									],
+									"type": "object"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid refresh token or invalid HTTP request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Authentication"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/users/{userId}/unfollow": {
+			"post": {
+				"operationId": "Unfollow",
+				"responses": {
+					"200": {
+						"description": "Successfully unfollowed user"
+					},
+					"400": {
+						"description": "Invalid Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "User Not Found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HTTPError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Users"
+				],
+				"security": [
+					{
+						"bearerAuth": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "userId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

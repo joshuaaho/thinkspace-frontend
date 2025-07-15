@@ -1,0 +1,62 @@
+/* Add these styles to ensure navigation elements are visible */
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5) !important;
+  border-radius: 50%;
+  z-index: 25;
+  cursor: pointer;
+  color: white;
+  border: none;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 24px;
+  color: white;
+  opacity: 1;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 50px; /* Positioned above the drag-drop text */
+  width: 100%;
+  z-index: 25;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.slick-dots li {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.slick-dots li button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.5;
+  border: none;
+  font-size: 0;
+  cursor: pointer;
+}
+
+.slick-dots li.slick-active button {
+  opacity: 1;
+} 
