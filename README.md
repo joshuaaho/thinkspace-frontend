@@ -1,1 +1,3 @@
 Frontend for my project thinkspace using Typescript, React, React Query, Zustand & more
+
+For Safari Users, please enable cross site cookies to enjoy full funtionality of the application : Safari -> Preferences -> Privacy and uncheck Prevent cross site tracking.
