@@ -109,7 +109,7 @@ const Form = ({ user }: FormProps) => {
   });
 
   const profileImgUrl = methods.watch("profileImgUrl");
-  console.log(profileImgUrl);
+
 
   return (
     <FormProvider {...methods}>

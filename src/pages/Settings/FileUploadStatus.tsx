@@ -25,7 +25,7 @@ const FileUploadStatus = ({
         s3Url: uploadUrl,
         file,
       });
-      console.log("uploadUrl",uploadUrl);
+
       setValue(
         "profileImgUrl",
         (uploadUrl.split("?")[0] as string)
