@@ -10,7 +10,6 @@ import EditPost from "@pages/EditPost";
 import NavLayout from "@common/Layouts/Nav";
 import PersistLogin from "@middleware/PersistLogin";
 import CreatePost from "@pages/CreatePost";
-import "./App.css";
 import { ErrorBoundary } from "react-error-boundary";
 
 import { SkeletonTheme } from "react-loading-skeleton";
