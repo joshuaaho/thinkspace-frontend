@@ -7,7 +7,7 @@ import { FormProvider } from "react-hook-form";
 import ProfileImg from "@common/ProfileImage";
 import { useState } from "react";
 import Button from "@common/Button";
-import FileUploadStatus from "@pages/CreatePost/Components/FileUploadStatus";
+import FileUploadStatus from "@pages/Settings/FileUploadStatus";
 import BioInput from "@pages/Settings/Inputs/Bio";
 import BioError from "@pages/Settings/Errors/Bio";
 import WorkInput from "@pages/Settings/Inputs/Work";
@@ -108,6 +108,9 @@ const Form = ({ user }: FormProps) => {
     },
   });
 
+  const profileImgUrl = methods.watch("profileImgUrl");
+  console.log(profileImgUrl);
+
   return (
     <FormProvider {...methods}>
       <div className="container mx-auto px-2 py-8">
@@ -117,7 +120,7 @@ const Form = ({ user }: FormProps) => {
               <div {...getRootProps()} className="cursor-pointer">
                 <input {...getInputProps()} />
                 <ProfileImg
-                  src={methods.getValues("profileImgUrl") as string}
+                  src={profileImgUrl as string}
                   size="2xl"
                   showRing
                 />
