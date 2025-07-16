@@ -6,8 +6,8 @@ const Content = () => {
     return (
       <div className="flex gap-3 items-start">
         <ProfileImage src={notification.fromProfileImgUrl} size="sm" />
-        <div className="flex-1 min-w-0">
-          <p className="text-sm">{notification.message}</p>
+        <div className="flex-1 min-w-0 overflow-hidden">
+          <p className="text-sm break-words line-clamp-3">{notification.message}</p>
           <p className="text-xs text-base-content/60 mt-1">
             {notification.createdAt}
           </p>

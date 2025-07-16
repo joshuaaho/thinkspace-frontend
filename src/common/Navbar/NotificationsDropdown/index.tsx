@@ -18,7 +18,7 @@ export function NotificationsDropdown() {
 
         <DropdownMenu.Portal>
           <DropdownMenu.Content
-            className="bg-base-100 rounded-lg shadow-lg min-w-[320px] p-2 z-50"
+            className="bg-base-100 rounded-lg shadow-lg w-[320px] max-w-[320px] p-2 z-50"
             align="end"
             sideOffset={5}
           >

@@ -35,7 +35,7 @@ export function Notifications() {
   return (
     <>
       <Header />
-      <div className=" overflow-y-auto">
+      <div className="max-h-[400px] overflow-y-auto">
         {recentNotifications.map((notification) => (
           <NotificationCard notification={notification} key={notification.id}>
             <Container>

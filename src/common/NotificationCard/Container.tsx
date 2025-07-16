@@ -6,7 +6,7 @@ type ContainerProps = {
 
 const ReadContainer = ({ children }: ContainerProps) => {
   return  <div
-      className={`p-4 hover:bg-base-200 cursor-pointer transition-colors`}
+      className={`p-4 hover:bg-base-200 cursor-pointer transition-colors max-h-[120px] overflow-hidden`}
     >
       {children}
     </div>;
@@ -14,7 +14,7 @@ const ReadContainer = ({ children }: ContainerProps) => {
 
 const UnreadContainer = ({ children }: ContainerProps) => {
   return  <div
-      className={`p-4 hover:bg-base-200 cursor-pointer transition-colors bg-base-200`}
+      className={`p-4 hover:bg-base-200 cursor-pointer transition-colors bg-base-200 max-h-[120px] overflow-hidden`}
     >
       {children}
   </div>;
