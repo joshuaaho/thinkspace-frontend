@@ -12,6 +12,10 @@ import {
 } from "@api/user/mutation";
 import ApiErrorModal from "@common/Modals/ApiErrorModal";
 import { FiSettings } from "react-icons/fi";
+import withAuthorization from "@hoc/withAuthorization";
+
+const ButtonWithAuthorization = withAuthorization(Button);
+
 
 export function ProfileHeader() {
   const navigate = useNavigate();
@@ -35,25 +39,25 @@ export function ProfileHeader() {
             <ProfileBasicInfo />
             <div className="flex gap-2">
               {profileUser.isFollowedByCurrentUser && (
-                <Button
+                <ButtonWithAuthorization
                   renderIcon={(props) => <FaUserMinus size={props.iconSize} />}
                   onClick={() => unfollowUser(profileUser.id)}
                 />
               )}
               {!profileUser.isFollowedByCurrentUser &&
                 !profileUser.isCurrentUser && (
-                  <Button
+                  <ButtonWithAuthorization
                     renderIcon={(props) => <FaUserPlus size={props.iconSize} />}
                     onClick={() => followUser(profileUser.id)}
                 />
                 )}
               
-              {!profileUser.isCurrentUser && <Button
+              {!profileUser.isCurrentUser && <ButtonWithAuthorization
                 renderIcon={(props) => <FaMessage size={props.iconSize} />}
                 onClick={handleMessageClick}
               />}
               
-              {profileUser.isCurrentUser && <Button
+              {profileUser.isCurrentUser && <ButtonWithAuthorization
                 renderIcon={(props) => <FiSettings size={props.iconSize} />}
                 onClick={() => navigate("/settings")}
               />}
