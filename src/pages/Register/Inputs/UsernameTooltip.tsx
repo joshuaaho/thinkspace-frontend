@@ -3,13 +3,10 @@ import { FaInfoCircle } from "react-icons/fa";
 import { useState } from "react";
 
 const UsernameTooltip = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   return (
     <Tooltip.Provider>
-      <Tooltip.Root
-           open={ open}
-
-           onOpenChange={setOpen}>
+      <Tooltip.Root open={open} onOpenChange={setOpen}>
         <Tooltip.Trigger asChild>
           <button
             type="button"
@@ -25,7 +22,9 @@ const UsernameTooltip = () => {
             sideOffset={5}
           >
             <div className="text-sm">
-              <p className="font-semibold mb-2 text-base-content">Username Requirements:</p>
+              <p className="font-semibold mb-2 text-base-content">
+                Username Requirements:
+              </p>
               <ul className="space-y-1.5 text-xs leading-relaxed">
                 <li className="flex items-start gap-2">
                   <span className="text-primary">•</span>
@@ -53,4 +52,4 @@ const UsernameTooltip = () => {
   );
 };
 
-export default UsernameTooltip; 
+export default UsernameTooltip;
