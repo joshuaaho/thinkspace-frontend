@@ -1,14 +1,20 @@
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { FaInfoCircle } from "react-icons/fa";
+import { useState } from "react";
 
 const UsernameTooltip = () => {
+  const [open, setOpen] = useState(false)
   return (
     <Tooltip.Provider>
-      <Tooltip.Root>
+      <Tooltip.Root
+           open={ open}
+
+           onOpenChange={setOpen}>
         <Tooltip.Trigger asChild>
           <button
             type="button"
             className="text-base-content/70 hover:text-base-content transition-colors"
+            onClick={() => setOpen(!open)}
           >
             <FaInfoCircle size={16} />
           </button>
